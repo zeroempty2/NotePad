@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class MemoService {
     public static void main(String[] args) {
+        MemoListValue memo = new MemoListValue();
         while (true) {
             Scanner scanner = new Scanner(System.in);
 
@@ -17,22 +18,27 @@ public class MemoService {
             System.out.println("번호를 입력하십시오");
 
             int enterNumber = scanner.nextInt();
-            MemoListValue Memo = new MemoListValue();
+
 
             if (1 == enterNumber){
-                Memo.showMemoList();
+                memo.showMemoList();
+
             }
             else if(2 == enterNumber) {
-                Memo.readMemo();
+                memo.readMemo();
+
             }
             else if(3 == enterNumber) {
-                Memo.createMemo();
+                memo.createMemo();
+
             }
             else if(4 == enterNumber) {
-                Memo.updateMemo();
+                memo.updateMemo();
+
             }
             else if(5 == enterNumber) {
-                Memo.deleteMemo();
+                memo.deleteMemo();
+
             }
             else if(6 == enterNumber) {
                 break;

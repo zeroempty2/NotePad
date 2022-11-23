@@ -93,17 +93,20 @@ public class MemoListValue {
         System.out.println("삭제하실 메모의 번호를 입력해주세요");
         int selectedNumber = Integer.parseInt(scanner.nextLine());
 
-        System.out.println("삭제하실 메모의 비밀번호를 입력해주세요");
-        String password = scanner.nextLine();
-
         MemoValue memoValue = memoVlues[selectedNumber];
         if (null == memoValue) {
             System.out.println("존재하지 않는 메모입니다");
             return;
         }
+
+        System.out.println("삭제하실 메모의 비밀번호를 입력해주세요");
+        String password = scanner.nextLine();
+
+
         if (Objects.equals(memoVlues[selectedNumber].password, password)) {
 
             memoVlues[selectedNumber] = null;
+
 
             System.out.println("메모가 삭제되었습니다");
             System.out.println("");
