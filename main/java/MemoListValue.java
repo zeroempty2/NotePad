@@ -3,7 +3,7 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class MemoListValue {
-    private int memoLength = 0;
+    private int memoLength = 1;
     private final MemoValue[] memoVlues;
     private final int Memo_SIZE = 20;
 
@@ -29,7 +29,7 @@ public class MemoListValue {
         System.out.println("비밀번호를 입력해 주세요");
         String password = scanner.nextLine();
 
-        memoVlues[this. memoLength++] = MemoValue.newMemo(title, content, password);
+        memoVlues[this.memoLength++] = MemoValue.newMemo(title, content, password);
 
 
         System.out.println("메모가 작성되었습니다");
@@ -104,12 +104,18 @@ public class MemoListValue {
 
 
         if (Objects.equals(memoVlues[selectedNumber].password, password)) {
-
-            memoVlues[selectedNumber] = null;
-
+            for (int i = 1; i < this.memoLength; i++) {
+                if(memoVlues[i] == memoVlues[selectedNumber]){
+                    for(int j = i; j < this.memoLength-1; j++){
+                        memoVlues[j]=memoVlues[j+1];
+                    }
+                    this.memoLength--;
+                }
+        }
 
             System.out.println("메모가 삭제되었습니다");
             System.out.println("");
+
 
         } else {
             System.out.println("비밀번호가 일치하지 않습니다");
@@ -119,12 +125,12 @@ public class MemoListValue {
 
     public void showMemoList () {
         System.out.println("");
-        if (0 == this.memoLength) {
+        if (1 == this.memoLength) {
             System.out.println("작성된 메모가 없습니다");
             System.out.println("");
             return;
         }
-        for (int i = 0; i < this.memoLength; i++) {
+        for (int i = 1; i < this.memoLength; i++) {
             MemoValue memoValue = memoVlues[i];
 
             String headLine = String.format("번호:%d 제목:%s 작성날짜:%s", i, memoValue.getTitle(),
@@ -133,5 +139,4 @@ public class MemoListValue {
         }
         System.out.println("");
     }
-
 }

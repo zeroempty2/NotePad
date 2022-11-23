@@ -21,7 +21,6 @@ public class MemoValue {
 
     void update(String content) {
         this.content = content;
-        // TODO : 수정 날짜 시간 갱신
         this.lastUpdateTime = LocalDateTime.now();
     }
 

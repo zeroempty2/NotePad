@@ -22,23 +22,18 @@ public class MemoService {
 
             if (1 == enterNumber){
                 memo.showMemoList();
-
             }
             else if(2 == enterNumber) {
                 memo.readMemo();
-
             }
             else if(3 == enterNumber) {
                 memo.createMemo();
-
             }
             else if(4 == enterNumber) {
                 memo.updateMemo();
-
             }
             else if(5 == enterNumber) {
                 memo.deleteMemo();
-
             }
             else if(6 == enterNumber) {
                 break;
